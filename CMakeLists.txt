@@ -27,6 +27,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/GaitInput.msg"
   "srv/SpotMotion.srv"
   "srv/SpotHeight.srv"
+  "action/Stack.action"
  )
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
