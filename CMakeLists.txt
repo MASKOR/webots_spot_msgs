@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(webots_spot_msgs)
+project(spot_msgs)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -17,10 +17,11 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rosidl_default_generators REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+find_package(bosdyn_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Legs.msg"
@@ -29,7 +30,11 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SpotHeight.srv"
   "action/Stack.action"
   "action/PeakAndDetectObject.action"
- )
+  DEPENDENCIES bosdyn_msgs
+)
+
+ament_export_dependencies(rosidl_default_runtime)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
