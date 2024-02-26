@@ -23,6 +23,7 @@ find_package(rosidl_default_generators REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/Int32.msg"
   "msg/Legs.msg"
   "msg/GaitInput.msg"
   "srv/SpotMotion.srv"
